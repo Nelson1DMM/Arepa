@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Publicación</title>
+    <style>
+        body {
+            font-family: 'Arial, sans-serif';
+            background: linear-gradient(to bottom right, #0033a0, #c8102e); /* Fondo azul y rojo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #ffffff;
+            color: #333;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 45%; /* La tarjeta ocupa el 45% del ancho de la pantalla */
+            max-width: 500px;
+            text-align: center;
+        }
+        .card h2 {
+            margin-bottom: 20px;
+            color: #0033a0; /* Color azul */
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0033a0; /* Color azul */
+            box-shadow: 0 0 5px rgba(0, 51, 160, 0.5);
+        }
+        .form-group input[type="submit"] {
+            background-color: #0033a0; /* Color azul */
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #c8102e; /* Color rojo */
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Borrar Publicación</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Borrar">
+        </form>
+    </div>
+</body>
+</html>

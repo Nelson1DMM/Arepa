@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Interactiva</title>
+    <style>
+        body {
+            font-family: 'Arial, sans-serif';
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Fondo blanco */
+            color: #333;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 60px;
+        }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar img {
+            max-height: 40px;
+            margin-right: 20px;
+        }
+        .navbar a {
+            color: #fff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .navbar a.logout {
+            background-color: #e74c3c;
+            border-radius: 4px;
+        }
+        .navbar a.logout:hover {
+            background-color: #c0392b;
+        }
+        .navbar form {
+            margin: 0;
+            display: inline;
+        }
+        .navbar input[type="submit"] {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .navbar input[type="submit"]:hover {
+            background-color: #c0392b;
+        }
+        .main-content {
+            padding: 80px 20px 20px; /* Espacio superior para que no se superponga con la navbar */
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="Escudo del Barcelona">
+            <a href="{% url 'post' %}">Home</a>
+            <a href="{% url 'create' %}">Create</a>
+        </div>
+        <div class="navbar-right">
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <input type="submit" value="Logout">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+        
+

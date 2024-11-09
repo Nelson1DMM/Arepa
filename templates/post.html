@@ -1,11 +1,121 @@
+{% include 'navbar.html' %}
 
-
-
-{% for i in post_list %}
-
-    <h1>{{i.titulo}}</h1>
-    <br>
-    <p>{{i.descripcion}}</p>
-    <hr>
-
-{% endfor %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicación de Productos</title>
+    <style>
+        body {
+            font-family: 'Arial, sans-serif';
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .product-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+        .product-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .product-title a:hover {
+            color: #000000;
+        }
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
+        .product-description {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #333;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .button-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button-container button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .button-container a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <main>
+        {% for post in post_list %}
+        <section class="product">
+            <h2 class="product-title"><a href="{% url 'detail' post.pk %}">{{post.titulo}}</a></h2>
+            <div class="product-image">
+                <img src="ruta-de-la-imagen.jpg" alt="Imagen del Producto">
+            </div>
+            <div class="product-description">
+                <p>{{post.descripcion}}</p>
+            </div>
+        </section>
+        {% endfor %}
+        
+    </main>
+    <footer>
+        <p>© 2024 Tienda Online. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

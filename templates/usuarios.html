@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Tabla con CSS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>imagen</th>
+                <th>nombre</th>
+                <th>descripcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuarios in personas_list %}
+            <tr>
+                <td><img src="{{ usuarios.imagen.url }}" width="300" height="300"></td>
+                <td>{{ usuarios.nombre }}</td>
+                <td>{{ usuarios.descripcion }}
+                </td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+
+
+    
